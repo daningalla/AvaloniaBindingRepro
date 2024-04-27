@@ -1,0 +1,21 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:desktop="clr-namespace:LabFlow.Desktop">
+    
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Dark">
+            <SvgSource x:Key="UomLiquid"
+                       Path="/Assets/UnitOfMeasure_Liquid.svg"
+                       Css=".MyStyle { fill: green; stroke: green; }"></SvgSource>
+    
+            <SvgSource x:Key="UomMass"
+                       Path="/Assets/UnitOfMeasure_Mass.svg"
+                       Css=".MyStyle { fill: #d580ff; stroke: #d580ff; }"></SvgSource>
+    
+            <SvgSource x:Key="UomTemp"
+                       Path="/Assets/UnitOfMeasure_Temp.svg"
+                       Css=".MyStyle { fill: #ffc266; stroke: #ffc266; }"></SvgSource>
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+    
+</ResourceDictionary>

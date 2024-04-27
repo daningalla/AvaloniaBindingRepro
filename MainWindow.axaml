@@ -1,0 +1,59 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:my="clr-namespace:SvgNotUpdatingRepro"
+		xmlns:cv="clr-namespace:SvgNotUpdatingRepro.Converters"xmlns:models="using:SvgNotUpdatingRepro.Models"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SvgNotUpdatingRepro.MainWindow"		
+		x:DataType="my:MainWindowViewModel"
+		x:CompileBindings="True"
+        Title="SvgNotUpdatingRepro"
+		Width="600"
+		Height="400">
+
+	<Window.Resources>
+		<ResourceDictionary>
+			<Thickness x:Key="DefaultMargin">10</Thickness>
+		</ResourceDictionary>
+	</Window.Resources>
+
+	<StackPanel Orientation="Horizontal">
+		<Label VerticalAlignment="Center" Margin="{StaticResource DefaultMargin}">Select Unit:</Label>
+		<AutoCompleteBox VerticalAlignment="Center" Width="200"
+						 ItemsSource="{Binding UnitsOfMeasure}"
+						 SelectedItem="{Binding SelectedUnitOfMeasure}"
+						 FilterMode="Contains">
+			<AutoCompleteBox.InnerLeftContent>
+				<Image Width="16" Height="16" VerticalAlignment="Center" Margin="8 0 8 0">
+					<Image.Source>
+						<SvgImage Source="{Binding $parent[AutoCompleteBox].SelectedItem, Converter={x:Static cv:SvgResourceConverter.SvgObjectConverter}}" />
+					</Image.Source>
+				</Image>
+			</AutoCompleteBox.InnerLeftContent>
+			<AutoCompleteBox.DataTemplates>
+				<DataTemplate x:DataType="models:UnitOfMeasure">
+					<StackPanel Orientation="Horizontal">
+						<Image Width="12" Height="12"
+							   VerticalAlignment="Center"
+							   Margin="8,0,8,0">
+							<Image.Source>
+								<SvgImage Source="{Binding Category, Converter={x:Static cv:SvgResourceConverter.SvgCategoryConverter}}" />
+							</Image.Source>
+						</Image>
+						<TextBlock Text="{Binding Name}" VerticalAlignment="Center" />
+					</StackPanel>
+				</DataTemplate>
+			</AutoCompleteBox.DataTemplates>
+		</AutoCompleteBox>
+		<Label VerticalAlignment="Center" Margin="{StaticResource DefaultMargin}">Category:</Label>
+		<TextBlock VerticalAlignment="Center" Text="{Binding SelectedUnitOfMeasureCategory}"/>
+		<Label VerticalAlignment="Center" Margin="{StaticResource DefaultMargin}">Icon:</Label>
+		<Image Width="16" Height="16">
+			<Image.Source>
+				<SvgImage Source="{Binding SelectedUnitOfMeasureCategory, Converter={x:Static cv:SvgResourceConverter.SvgCategoryConverter}}" />
+			</Image.Source>
+		</Image>
+	</StackPanel>
+
+</Window>
