@@ -51,7 +51,7 @@
 		<Label VerticalAlignment="Center" Margin="{StaticResource DefaultMargin}">Icon:</Label>
 		<Image Width="16" Height="16">
 			<Image.Source>
-				<SvgImage Source="{Binding SelectedUnitOfMeasureCategory, Converter={x:Static cv:SvgResourceConverter.SvgCategoryConverter}}" />
+				<SvgImage Source="{Binding SelectedUnitOfMeasure, Converter={x:Static cv:SvgResourceConverter.SvgObjectConverter}}" />
 			</Image.Source>
 		</Image>
 	</StackPanel>
