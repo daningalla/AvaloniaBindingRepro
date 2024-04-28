@@ -27,7 +27,7 @@
 			<AutoCompleteBox.InnerLeftContent>
 				<Image Width="16" Height="16" VerticalAlignment="Center" Margin="8 0 8 0">
 					<Image.Source>
-						<SvgImage Source="{Binding $parent[AutoCompleteBox].SelectedItem, Converter={x:Static cv:SvgResourceConverter.SvgObjectConverter}}" />
+						<SvgImage Source="{Binding SelectedUnitOfMeasure, Converter={x:Static cv:SvgResourceConverter.SvgObjectConverter}}" />
 					</Image.Source>
 				</Image>
 			</AutoCompleteBox.InnerLeftContent>
